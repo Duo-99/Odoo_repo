@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bee_inventory_bee_manager,bee_inventory.bee_inventory,model_bee_confg_delivery,bee_inventory.group_manager,1,1,1,1
+access_bee_inventory_bee_user,bee_inventory.bee_inventory,model_bee_confg_delivery,bee_inventory.group_user,1,0,0,0
+access_bee_inventory_detail,bee_inventory.bee_inventory,model_bee_inventory_detail,bee_inventory.group_manager,1,1,1,1

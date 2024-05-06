@@ -1,0 +1,56 @@
+
+<odoo>
+    <template inherit_id='stock.report_delivery_document' id='report_delivery_document_1'> 
+        <xpath expr = "//div[@name='div_sched_date']" position='after'>
+        
+        
+        <div class="col-auto" name="div_origin1">
+            <strong>              </strong>
+        </div>
+
+        <div class="col-auto" name="div_origin15">
+            <strong>              </strong>
+        </div>
+
+        <div class="col-auto" name="div_origin12">
+            <strong>              </strong>
+        </div>
+
+        <div class="col-auto" name="div_origin13">
+            <strong>              </strong>
+        </div>
+
+        <div class="col-auto" name="div_origin14" t-if='o.user_id'>
+            <strong>Transfered by : </strong>
+            <p t-field="o.user_id"/>
+        </div>
+
+        <div class="col-auto" name="div_origin16">
+            <strong>              </strong>
+        </div>
+
+        <div class="col-auto" name="div_origin17">
+            <strong>              </strong>
+        </div>
+
+        <div class="col-auto" name="div_origin18">
+            <strong>              </strong>
+        </div>
+        
+        <div class="col-auto" name="div_origin19">
+            <strong>              </strong>
+        </div>
+
+        <div class="col-auto" name="div_origin191">
+            <strong>              </strong>
+        </div>
+
+        
+        <div class="col-auto" name="div_origin2" t-if='o.type'>
+            <strong>Deliver Process by :</strong>
+            <p t-field="o.type"/>
+        </div>
+
+        </xpath>
+    </template>
+</odoo>

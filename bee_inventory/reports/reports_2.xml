@@ -1,0 +1,72 @@
+<odoo>
+    <data>
+
+        <report
+            id="reports_2"
+            string="Delivery Detail"
+            model="bee_inventory.detail"
+            report_type="qweb-pdf"
+            name="bee_inventory.reports_detail"
+            file="bee_inventory.reports_detail"
+            print_report_name = "'Delivery Detail - '+object.picking_record.company_id.name"
+            />
+
+
+        <template id="bee_inventory.reports_detail">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="content" style="text-align: center;">
+                            <h3>Delivery Detail</h3>
+                            <h6 t-foreach="docs" t-as="doc"> From : <span t-field="doc.tr_date"/> To : <span t-field="doc.rc_date"/></h6>
+                        </div>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Reference</th>
+                                    <th>Contact</th>
+                                    <th>Scheduled_date</th>
+                                    <th>Company</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <t t-foreach='docs' t-as='doc'>
+                                <tr t-foreach="doc.picking_record" t-as="picking">
+                                    <td>
+                                        <!-- <span t-foreach="doc.picking_record" t-as="picking"> -->
+                                            <span t-field="picking.name"/><br/>
+                                        <!-- </span> -->
+                                    </td>
+                                    <td>
+                                        <!-- <span t-foreach="doc.picking_record" t-as="picking"> -->
+                                            <span t-field="picking.partner_id"/><br/>
+                                        <!-- </span> -->
+                                    </td>
+                                    <td>
+                                        <!-- <span t-foreach="doc.picking_record" t-as="picking"> -->
+                                            <span t-field="picking.type"/><br/>
+                                        <!-- </span> -->
+                                    </td>
+                                    <td>
+                                        <!-- <span t-foreach="doc.picking_record" t-as="picking"> -->
+                                            <span t-field="picking.company_id"/><br/>
+                                        <!-- </span> -->
+                                    </td>
+                                    <td>
+                                        <!-- <span t-foreach="doc.picking_record" t-as="picking"> -->
+                                            <span t-field="picking.state"/><br/>
+                                        <!-- </span> -->
+                                    </td> 
+                                </tr>
+                                <br/> 
+
+                             </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

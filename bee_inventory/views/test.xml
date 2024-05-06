@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+ <data>
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        <record model="ir.ui.view" id="transfer_form_1">
+            <field name="name">transfer.form.1</field>
+            <field name="model">bee.confg</field>
+            <field name="arch" type="xml">
+                <form string="TransferForm">
+                 <sheet>
+                    <group>
+                        <group string = 'General'>
+                            <field name="contact"/>
+                            <field name="tr_date"/>
+                            
+                            <field name="option1"/>
+                            <field name="option2"/>
+                            <field name="option3"/>
+                            <!-- <field name="cost"/> -->
+                        </group>
+
+                        <group string = 'Duration'>
+                            <field name="selected_option"/>
+                            <field name="rc_date"/>
+                            
+                        </group>
+                    </group>
+
+                    <field name='products'/>
+                    
+                 </sheet>
+                </form>
+            </field>
+        </record>
+         <record model="ir.ui.view" id="course_tree_view_1">
+            <field name="name">transfer.tree.1</field>
+            <field name="model">bee.confg</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="ref"/>
+                    <field name="contact"/>
+                    <field name="selected_option"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="course_list_action_1">
+            <field name="name">Transfer Way</field>
+            <field name="res_model">bee.confg</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="courses_menu" name="Transfer Way" parent="stock.menu_stock_config_settings"
+                 action="course_list_action_1"/>
+
+
+        
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+        
+
+    <!-- inherit_view -->
+        
+        
+        
+        <record model="ir.ui.view" id="transfer_form_view">
+            <field name="name">transfer1.form</field>
+            <field name="model">stock.picking</field>
+            <field name = "inherit_id" ref = "stock.view_picking_form"/>
+            <field name = 'arch' type="xml">
+                <xpath expr = "//field[@name='picking_type_id']" position = 'after'> 
+                    <field name = 'type'/>
+                </xpath>
+            </field>
+        </record>
+       
+       
+       
+       
+       
+       
+       
+    
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+    <!-- confg_view -->
+        <record model="ir.ui.view" id="transfer_form">
+            <field name="name">transfer.form</field>
+            <field name="model">bee.confg.delivery</field>
+            <field name="arch" type="xml">
+                <form string="TransferForm">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name = "name"/>
+                                <field name = "type"/>
+                            </group>
+                            <group>
+                                <field name = "available"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+
+        </record>
+
+
+        <record model="ir.ui.view" id="course_tree_view">
+            <field name="name">transfer.tree</field>
+            <field name="model">bee.confg.delivery</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="course_list_action">
+            <field name="name">Transfer Way</field>
+            <field name="res_model">bee.confg.delivery</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create Ways
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu1" name="Transfer Way" parent="stock.menu_stock_config_settings" sequence="10"/>
+        <menuitem id="courses_menu_1" name="Delivery Type" parent="menu1"
+                  action="course_list_action"/>
+
+
+
+        
+    
+    <!-- wiazrd_view -->
+
+        
+        <record model="ir.ui.view" id="delivery_form">
+            <field name="name">delivery.form</field>
+            <field name="model">bee_inventory.detail</field>
+            <field name="arch" type="xml">
+                <form string="Delivery Detail">
+                    <sheet>
+                        <group>
+                                <field name = "tr_date"/>
+                                <field name = "rc_date"/>
+                        </group>
+                        <field name = "vendor">
+                            <tree>  
+                                <field name = "translated_display_name" string="Name"/>
+                                <field name = "phone"/>
+                                <field name = "email"/>
+                                <field name = "city"/>
+                                <field name = "country_id"/>
+                            </tree>
+                        </field>
+                        <footer>
+                            <button name="generate_report" string="Print PDF Report" type="object" class="btn-primary" data-hotkey="q"/>
+                            <button name="generate_xlsx_report" string="Print Excel Report" type="object" class="btn-primary" data-hotkey="q"/>
+                            <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z" />
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+
+        </record>
+
+
+
+        <record model="ir.actions.act_window" id="wizard_action">
+            <field name="name">Delivery Detail</field>
+            <field name="res_model">bee_inventory.detail</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="delivery_form"/>
+            <field name='target'>new</field>
+        </record>
+        
+
+        <menuitem id="menu_delivery_detail" name="Delivery" parent="stock.menu_warehouse_report" sequence="10"/>
+        <menuitem id="menu_delivery_detail_action" name="Delivery Detail" parent="menu_delivery_detail" action="wizard_action"/>
+
+ </data>
+        
+</odoo>

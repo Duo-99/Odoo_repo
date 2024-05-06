@@ -1,0 +1,13 @@
+    <odoo>
+        <data>
+            <report 
+                id = 'reports_3'
+                model = 'bee_inventory.detail'
+                string = 'Delivery Detail'
+                report_type= 'xlsx'
+                name = 'bee_inventory.reports_3'
+                file = 'bee_inventory.reports_3'
+                print_report_name = "'Delivery Detail - '+object.picking_record.company_id.name"
+            />
+        </data>
+    </odoo>
